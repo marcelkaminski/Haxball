@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     private int score_Red = 0;
     public Text ScoreText;
     public Text GoalText;
-    public GameObject GoalTextPanel;  
+    public GameObject GoalTextPanel;
+    public int goalsToWin = 2;  
 
     void Start()
     {
@@ -30,18 +31,16 @@ public class GameManager : MonoBehaviour
             GoalText.color = Color.red;
         }
         ScoreText.text = score_Blue + " : " + score_Red;
+        ShowGoalMessage(team);
+    }
+
+    private void ShowGoalMessage(string team)
+    {
         GoalText.text = team.ToUpper() + " TEAM SCORES";
         GoalTextPanel.SetActive(true);
-        //Invoke("RestartScene", 1.0f);
         Invoke("Foo", 1.0f);
-        
     }
-
-    private void RestartScene()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
+    
     private void Foo()
     {
         GoalTextPanel.SetActive(false);
