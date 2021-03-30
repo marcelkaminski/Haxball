@@ -12,10 +12,19 @@ public class GameManager : MonoBehaviour
     public Text GoalText;
     public GameObject GoalTextPanel;
     public int goalsToWin = 2;  
-
+    private TimerController timer;
+    
     void Start()
     {
-        
+        timer = GetComponent<TimerController>();
+    }
+
+    void Update()
+    {
+        if (!timer.timerIsRunning)
+        {
+            CheckTimeWin();           
+        }
     }
 
     public void UpdateScore(string team)
@@ -72,5 +81,25 @@ public class GameManager : MonoBehaviour
     private void RestartMatch()
     {
         SceneManager.LoadScene("StartScene");
+    }
+
+    private void CheckTimeWin()
+    {
+        if (score_Red > score_Blue)
+        {
+            ShowWinMessage("red");
+        }
+        else if (score_Red < score_Blue)
+        {
+            ShowWinMessage("blue");
+        }
+        else
+        {
+            GoalText.color = Color.white;
+            GoalText.text = "DRAW";
+            GoalTextPanel.SetActive(true);
+            Invoke("RestartMatch", 5.0f);
+            Invoke("HideGoalMessage", 5.0f);
+        }
     }
 }
