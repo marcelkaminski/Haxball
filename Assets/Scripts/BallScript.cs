@@ -7,6 +7,7 @@ public class BallScript : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     public float kickForce = 1000;
+    public GameManager gm;
     
     void Start()
     {
@@ -31,11 +32,11 @@ public class BallScript : MonoBehaviour
     {
         if(other.transform.CompareTag("Goal_Red"))
         {
-            Debug.Log("Pilka wpadla do bramki czerwonej");
+            gm.UpdateScore("blue");
         }
         else if (other.transform.CompareTag("Goal_Blue"))
         {
-            Debug.Log("Pilka wpadla do bramki niebieskiej");
+            gm.UpdateScore("red");
         }
     }
 }
