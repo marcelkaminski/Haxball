@@ -32,17 +32,45 @@ public class GameManager : MonoBehaviour
         }
         ScoreText.text = score_Blue + " : " + score_Red;
         ShowGoalMessage(team);
+        CheckScoreWin(score_Blue, score_Red);
+
     }
 
     private void ShowGoalMessage(string team)
     {
         GoalText.text = team.ToUpper() + " TEAM SCORES";
         GoalTextPanel.SetActive(true);
-        Invoke("Foo", 1.0f);
+        Invoke("HideGoalMessage", 5.0f);
+    }
+
+    private void ShowWinMessage(string team)
+    {
+        GoalText.text = team.ToUpper() + " TEAM WIN";
+        GoalTextPanel.SetActive(true);
+        
+        Invoke("RestartMatch", 5.0f);
+        Invoke("HideGoalMessage", 5.0f);
     }
     
-    private void Foo()
+    private void HideGoalMessage()
     {
         GoalTextPanel.SetActive(false);
+    }
+
+    private void CheckScoreWin(int score_Blue, int score_Red)
+    {
+        if (score_Red >= goalsToWin)
+        {
+            ShowWinMessage("red");
+        }
+        else if (score_Blue >= goalsToWin)
+        {
+            ShowWinMessage("blue");
+        }
+    }
+
+    private void RestartMatch()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
