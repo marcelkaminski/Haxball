@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             score_Red++;
             GoalText.color = Color.red;
         }
-        ScoreText.text = score_Blue + " : " + score_Red;
+        ScoreText.text = "SCORE: " + score_Blue + " : " + score_Red;
         ShowGoalMessage(team);
         CheckScoreWin(score_Blue, score_Red);
 
