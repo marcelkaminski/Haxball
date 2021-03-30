@@ -8,13 +8,18 @@ public class PlayerScript : MonoBehaviour
     private float moveVertical;
     public float playerSpeed;
     public bool kicking = false;
+    public Sprite normalSprite;
+    public Sprite kickSprite;
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private SpriteRenderer sr;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -41,6 +46,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             kicking = true;
+            sr.sprite = kickSprite; 
             Invoke("StopKicking", 0.1f);
         }
     }
@@ -48,5 +54,6 @@ public class PlayerScript : MonoBehaviour
     private void StopKicking()
     {
         kicking = false;
+        sr.sprite = normalSprite; 
     }
 }
