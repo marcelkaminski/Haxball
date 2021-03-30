@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,5 +25,13 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(score_Blue + " : " + score_Red);
         //scoreText.text = "Score: " + score.ToString();
+        Debug.Log(team + " scores");
+        Invoke("RestartScene", 1.0f);
+        
+    }
+
+    private void RestartScene()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
