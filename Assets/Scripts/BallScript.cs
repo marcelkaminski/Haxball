@@ -20,12 +20,22 @@ public class BallScript : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        Debug.Log(other.transform.GetComponent<PlayerScript>().kicking);
         if(other.transform.CompareTag("Player") && other.transform.GetComponent<PlayerScript>().kicking)
         {
             Vector2 direction = (other.transform.position - transform.position).normalized;
             rb.AddForce(-direction * kickForce);
-            Debug.Log("kicked" + (-direction*kickForce));
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.transform.CompareTag("Goal_Red"))
+        {
+            Debug.Log("Pilka wpadla do bramki czerwonej");
+        }
+        else if (other.transform.CompareTag("Goal_Blue"))
+        {
+            Debug.Log("Pilka wpadla do bramki niebieskiej");
         }
     }
 }
