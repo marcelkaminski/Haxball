@@ -121,13 +121,13 @@ public class GameManager : MonoBehaviour
         float y_position = 2.9f;
         foreach (GameObject player_Blue in players_Blue)
         {
-            player_Blue.transform.position = new Vector2 (x_position, y_position);
+            player_Blue.transform.position = new Vector2 (-x_position, y_position);
             y_position -= 0.8f;
         }
         y_position = 2.9f;
         foreach (GameObject player_Red in players_Red)
         {
-            player_Red.transform.position = new Vector2 (-x_position, y_position);
+            player_Red.transform.position = new Vector2 (x_position, y_position);
             y_position -= 0.8f;
         }
     }

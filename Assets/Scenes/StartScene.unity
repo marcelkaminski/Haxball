@@ -487,8 +487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 89.1, y: -62.8}
-  m_SizeDelta: {x: 178.211, y: 125.677765}
+  m_AnchoredPosition: {x: 86.033, y: -18.4}
+  m_SizeDelta: {x: 172.06644, y: 36.952698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816790249
 MonoBehaviour:
@@ -511,12 +511,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9231d357953ff545b6e5ecbd68b77fe, type: 3}
-    m_FontSize: 50
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -621,12 +621,12 @@ PrefabInstance:
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
@@ -709,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -64.371, y: -57.379}
-  m_SizeDelta: {x: 128.74164, y: 114.835815}
+  m_AnchoredPosition: {x: -78.6, y: -18.431}
+  m_SizeDelta: {x: 157.26035, y: 36.8909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301669620
 MonoBehaviour:
@@ -733,12 +733,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9231d357953ff545b6e5ecbd68b77fe, type: 3}
-    m_FontSize: 50
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -773,12 +773,12 @@ PrefabInstance:
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.11
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
