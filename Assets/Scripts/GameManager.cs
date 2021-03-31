@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         GoalTextPanel.SetActive(true);
         Invoke("HideGoalMessage", 3.0f);
         Invoke("ResetBall", 3.0f);
+        Invoke("ResetPlayers", 3.0f);
     }
 
     private void ShowWinMessage(string team)
@@ -61,8 +62,8 @@ public class GameManager : MonoBehaviour
         GoalText.text = team.ToUpper() + " TEAM WIN";
         GoalTextPanel.SetActive(true);
         
-        Invoke("RestartMatch", 5.0f);
-        Invoke("HideGoalMessage", 5.0f);
+        Invoke("RestartMatch", 3.0f);
+        Invoke("HideGoalMessage", 3.0f);
     }
     
     private void HideGoalMessage()
@@ -102,13 +103,32 @@ public class GameManager : MonoBehaviour
             GoalText.color = Color.white;
             GoalText.text = "DRAW";
             GoalTextPanel.SetActive(true);
-            Invoke("RestartMatch", 5.0f);
-            Invoke("HideGoalMessage", 5.0f);
+            Invoke("RestartMatch", 3.0f);
+            Invoke("HideGoalMessage", 3.0f);
         }
     }
 
     private void ResetBall()
     {
         bs.ResetBallPosition();
+    }
+
+    private void ResetPlayers()
+    {
+        GameObject[] players_Blue = GameObject.FindGameObjectsWithTag("Player_Blue");
+        GameObject[] players_Red = GameObject.FindGameObjectsWithTag("Player_Red");
+        float x_position = 3;
+        float y_position = 2.9f;
+        foreach (GameObject player_Blue in players_Blue)
+        {
+            player_Blue.transform.position = new Vector2 (x_position, y_position);
+            y_position -= 0.8f;
+        }
+        y_position = 2.9f;
+        foreach (GameObject player_Red in players_Red)
+        {
+            player_Red.transform.position = new Vector2 (-x_position, y_position);
+            y_position -= 0.8f;
+        }
     }
 }

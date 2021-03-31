@@ -215,7 +215,7 @@ RectTransform:
   - {fileID: 1059662527}
   - {fileID: 1301669619}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -334,6 +334,7 @@ MonoBehaviour:
   GoalText: {fileID: 252108358}
   GoalTextPanel: {fileID: 1059662526}
   goalsToWin: 2
+  Ball: {fileID: 579826106}
 --- !u!4 &472125486
 Transform:
   m_ObjectHideFlags: 0
@@ -346,7 +347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &472125487
 MonoBehaviour:
@@ -446,6 +447,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579826106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7056578908906667136, guid: cf94beb158037254db69791e2699bae7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7056578908098020230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &816790247
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +606,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059662526}
   m_CullTransparentMesh: 0
---- !u!1001 &1060664915
+--- !u!1001 &1184838146
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -609,17 +616,17 @@ PrefabInstance:
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.76
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5068633816049901913, guid: 51c7fbcbef89c1947a44b1afd9ffb07d,
         type: 3}
@@ -746,7 +753,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301669618}
   m_CullTransparentMesh: 0
---- !u!1001 &1755389057
+--- !u!1001 &1311529215
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -756,22 +763,22 @@ PrefabInstance:
     - target: {fileID: 4744639215548543113, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
       propertyPath: m_Name
-      value: Player_Blue 1
+      value: Player_Blue
       objectReference: {fileID: 0}
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1529992
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18846756
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4744639215548543116, guid: 3295ec18bafbde444a04635c4e6ec7bf,
         type: 3}
@@ -835,7 +842,7 @@ PrefabInstance:
     - target: {fileID: 7334892933028061812, guid: cf94beb158037254db69791e2699bae7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7334892933028061812, guid: cf94beb158037254db69791e2699bae7,
         type: 3}

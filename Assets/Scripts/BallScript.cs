@@ -21,7 +21,7 @@ public class BallScript : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        if(other.transform.CompareTag("Player") && other.transform.GetComponent<PlayerScript>().kicking)
+        if((other.transform.CompareTag("Player_Red") || other.transform.CompareTag("Player_Blue")) && other.transform.GetComponent<PlayerScript>().kicking)
         {
             Vector2 direction = (other.transform.position - transform.position).normalized;
             rb.AddForce(-direction * kickForce);
@@ -42,7 +42,6 @@ public class BallScript : MonoBehaviour
 
     public void ResetBallPosition()
     {
-        Debug.Log("Pozycja resetowana");
         transform.position = Vector2.zero;
         rb.velocity = Vector2.zero;
     }
