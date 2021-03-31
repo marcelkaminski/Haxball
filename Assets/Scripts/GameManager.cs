@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject GoalTextPanel;
     public int goalsToWin = 2;  
     private TimerController timer;
+    private BallScript bs;
+    public GameObject Ball;
     
     void Start()
     {
         timer = GetComponent<TimerController>();
+        bs = Ball.GetComponent<BallScript>();
     }
 
     void Update()
@@ -49,7 +52,8 @@ public class GameManager : MonoBehaviour
     {
         GoalText.text = team.ToUpper() + " TEAM SCORES";
         GoalTextPanel.SetActive(true);
-        Invoke("HideGoalMessage", 5.0f);
+        Invoke("HideGoalMessage", 3.0f);
+        Invoke("ResetBall", 3.0f);
     }
 
     private void ShowWinMessage(string team)
@@ -101,5 +105,10 @@ public class GameManager : MonoBehaviour
             Invoke("RestartMatch", 5.0f);
             Invoke("HideGoalMessage", 5.0f);
         }
+    }
+
+    private void ResetBall()
+    {
+        bs.ResetBallPosition();
     }
 }

@@ -39,4 +39,11 @@ public class BallScript : MonoBehaviour
             gm.UpdateScore("red");
         }
     }
+
+    public void ResetBallPosition()
+    {
+        Debug.Log("Pozycja resetowana");
+        transform.position = Vector2.zero;
+        rb.velocity = Vector2.zero;
+    }
 }
