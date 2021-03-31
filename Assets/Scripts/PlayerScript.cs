@@ -47,7 +47,7 @@ public class PlayerScript : MonoBehaviour
         {
             kicking = true;
             sr.sprite = kickSprite; 
-            Invoke("StopKicking", 0.1f);
+            Invoke("StopKicking", 0.05f);
         }
     }
 
