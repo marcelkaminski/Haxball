@@ -5,8 +5,7 @@ using UnityEngine;
 public class BallScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Vector2 movement;
-    public float kickForce = 1000;
+    //public float kickForce = 1000;
     public GameManager gm;
     
     void Start()
@@ -19,14 +18,14 @@ public class BallScript : MonoBehaviour
         
     }
 
-    void OnCollisionStay2D(Collision2D other)
-    {
-        if((other.transform.CompareTag("Player_Red") || other.transform.CompareTag("Player_Blue")) && other.transform.GetComponent<PlayerScript>().kicking)
-        {
-            Vector2 direction = (other.transform.position - transform.position).normalized;
-            rb.AddForce(-direction * kickForce);
-        }
-    }
+    //void OnCollisionStay2D(Collision2D other)
+    //{
+    //    if((other.transform.CompareTag("Player_Red") || other.transform.CompareTag("Player_Blue")) && other.transform.GetComponent<PlayerScript>().kicking)
+    //    {
+    //        Vector2 direction = (other.transform.position - transform.position).normalized;
+    //        rb.AddForce(-direction * kickForce);
+    //    }
+    //}
 
     void OnTriggerEnter2D(Collider2D other)
     {
