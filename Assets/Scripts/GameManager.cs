@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void ShowWinMessage(string team)
     {
-        GoalText.text = team.ToUpper() + " TEAM WIN";
+        GoalText.text = team.ToUpper() + " TEAM WINS";
         GoalTextPanel.SetActive(true);
         
         Invoke("RestartMatch", 3.0f);
