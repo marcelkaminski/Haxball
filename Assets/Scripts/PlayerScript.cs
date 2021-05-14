@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : NetworkBehaviour
 {
     private float moveHorizontal;
     private float moveVertical;
@@ -24,11 +25,13 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        if (!hasAuthority) {return;}
         PlayerKick();
     }
 
     void FixedUpdate()
     {
+        if (!hasAuthority) {return;}
         PlayerMovement();
     }
 
