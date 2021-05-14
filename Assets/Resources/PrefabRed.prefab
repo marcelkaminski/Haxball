@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 2564404773316209738}
   - component: {fileID: 6478081120355753962}
   m_Layer: 0
-  m_Name: Player_Red_Network
+  m_Name: PrefabRed
   m_TagString: Player_Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01

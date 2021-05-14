@@ -23,12 +23,14 @@ public class PlayerScript : NetworkBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
+    [Client]
     void Update()
     {
         if (!hasAuthority) {return;}
         PlayerKick();
     }
-
+    
+    [Client]
     void FixedUpdate()
     {
         if (!hasAuthority) {return;}
