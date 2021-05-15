@@ -6,7 +6,7 @@ public class BallScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     //public float kickForce = 1000;
-    public GameManager gm;
+    //public GameManager gm;
     
     void Start()
     {
@@ -26,7 +26,7 @@ public class BallScript : MonoBehaviour
     //        rb.AddForce(-direction * kickForce);
     //    }
     //}
-
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.transform.CompareTag("Goal_Red"))
@@ -43,5 +43,6 @@ public class BallScript : MonoBehaviour
     {
         transform.position = Vector2.zero;
         rb.velocity = Vector2.zero;
-    }
+    }*/
 }
+

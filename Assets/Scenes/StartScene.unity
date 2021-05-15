@@ -334,7 +334,7 @@ MonoBehaviour:
   GoalText: {fileID: 252108358}
   GoalTextPanel: {fileID: 1059662526}
   goalsToWin: 2
-  Ball: {fileID: 579826106}
+  Ball: {fileID: 0}
 --- !u!4 &472125486
 Transform:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 558949184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 333c32256acda824195b02545fdb2160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -534,7 +534,8 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 310776512941231341, guid: 75d13a4e4b97f204fbd74a81b430b7dd, type: 3}
 --- !u!4 &558949188
 Transform:
   m_ObjectHideFlags: 0
@@ -549,12 +550,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &579826106 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7056578908906667136, guid: cf94beb158037254db69791e2699bae7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7056578908098020230}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &603849441
 GameObject:
   m_ObjectHideFlags: 0

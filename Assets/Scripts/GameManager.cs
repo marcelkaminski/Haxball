@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject GoalTextPanel;
     public int goalsToWin = 2;  
     private TimerController timer;
-    private BallScript bs;
-    public GameObject Ball;
+    //private BallScript bs;
+    //public GameObject Ball;
     
     void Start()
     {
         timer = GetComponent<TimerController>();
-        bs = Ball.GetComponent<BallScript>();
+        //bs = Ball.GetComponent<BallScript>();
     }
 
     void Update()
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     private void ResetBall()
     {
-        bs.ResetBallPosition();
+        //bs.ResetBallPosition();
     }
 
     private void ResetPlayers()
