@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class BallScript : MonoBehaviour
+public class BallScript : NetworkBehaviour
 {
     private Rigidbody2D rb;
     //public float kickForce = 1000;
@@ -13,9 +14,33 @@ public class BallScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void OnTriggerEnter2D (Collider2D collider) 
     {
-        
+        if(collider.tag == "Goal_Blue") 
+        {
+            Debug.Log("blue");
+            //this.TakeDamage(1);
+            //Destroy(collider.gameObject);
+        }
+        else if(collider.tag == "Goal_Red")
+        {
+            Debug.Log("red");
+        }
+    }
+    /*
+    void TakeDamage (int amount)
+    {
+        if(this.isServer)
+        {
+            RpcRespawn();
+        }
+    }
+
+
+    [ClientRpc]
+    void RpcRespawn()
+    {
+        return 0;
     }
 
     //void OnCollisionStay2D(Collision2D other)
@@ -26,7 +51,7 @@ public class BallScript : MonoBehaviour
     //        rb.AddForce(-direction * kickForce);
     //    }
     //}
-    /*
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.transform.CompareTag("Goal_Red"))
