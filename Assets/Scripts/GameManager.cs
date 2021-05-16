@@ -1,53 +1,60 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Mirror;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
+    [SyncVar]
     private int score_Blue = 0;
+    [SyncVar]
     private int score_Red = 0;
     public Text ScoreText;
     public Text GoalText;
     public GameObject GoalTextPanel;
     public int goalsToWin = 2;  
-    private TimerController timer;
     //private BallScript bs;
     //public GameObject Ball;
+
+    GameObject GameCanvas;
     
+
+    // NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+    // PlayerManager = networkIdentity.GetComponent<PlayerManager>();
+
     void Start()
     {
-        timer = GetComponent<TimerController>();
-        //bs = Ball.GetComponent<BallScript>();
+        GameCanvas = GameObject.Find("GameCanvas(Clone)");
+        ScoreText = GameCanvas.transform.GetChild(0).GetComponent<Text>();
+        //GoalTextPanel = GameCanvas.transform.GetChild(1).GetComponent<GameObject>();
+        //GoalText = GoalTextPanel.transform.GetChild(0).GetComponent<Text>();
     }
 
-    void Update()
-    {
-        if (!timer.timerIsRunning)
-        {
-            CheckTimeWin();           
-        }
-    }
-
+    [ClientRpc]
     public void UpdateScore(string team)
     {
+        
         if (team == "blue")
         {
             score_Blue++;
-            GoalText.color = Color.blue;
+            Debug.Log("SCORE: " + score_Blue + " : " + score_Red);
+            //GoalText.color = Color.blue;
         }
         else if (team == "red")
         {
             score_Red++;
-            GoalText.color = Color.red;
+            Debug.Log("SCORE: " + score_Blue + " : " + score_Red);
+            //GoalText.color = Color.red;
         }
         ScoreText.text = "SCORE: " + score_Blue + " : " + score_Red;
-        ShowGoalMessage(team);
-        CheckScoreWin(score_Blue, score_Red);
+        //ShowGoalMessage(team);
+        //CheckScoreWin(score_Blue, score_Red);
 
     }
 
+    
     private void ShowGoalMessage(string team)
     {
         GoalText.text = team.ToUpper() + " TEAM SCORES";
@@ -83,12 +90,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RestartMatch()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
-    private void CheckTimeWin()
+    public void CheckTimeWin()
     {
         if (score_Red > score_Blue)
         {
@@ -102,17 +104,24 @@ public class GameManager : MonoBehaviour
         {
             GoalText.color = Color.white;
             GoalText.text = "DRAW";
-            GoalTextPanel.SetActive(true);
-            Invoke("RestartMatch", 3.0f);
-            Invoke("HideGoalMessage", 3.0f);
+
         }
+
+        GoalTextPanel.SetActive(true);
+        //Invoke("RestartMatch", 3.0f);
+        Invoke("HideGoalMessage", 3.0f);
+    }
+    /*
+    private void RestartMatch()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 
     private void ResetBall()
     {
         //bs.ResetBallPosition();
     }
-
+    
     private void ResetPlayers()
     {
         GameObject[] players_Blue = GameObject.FindGameObjectsWithTag("Player_Blue");
@@ -130,5 +139,5 @@ public class GameManager : MonoBehaviour
             player_Red.transform.position = new Vector2 (x_position, y_position);
             y_position -= 0.8f;
         }
-    }
+    }*/
 }

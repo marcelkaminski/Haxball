@@ -5,11 +5,16 @@ public class NetworkManagerHaxball : NetworkManager
 {
     // public Transform leftRacketSpawn;
     //public Transform rightRacketSpawn;
-    GameObject ball;
     [SerializeField]
-    private GameObject Goal_Blue;
+    private GameObject BallPrefab;
     [SerializeField]
-    private GameObject Goal_Red;
+    private GameObject Goal_BluePrefab;
+    [SerializeField]
+    private GameObject Goal_RedPrefab;
+    [SerializeField]
+    private GameObject GameManagerPrefab;
+    [SerializeField]
+    private GameObject GameCanvasPrefab;
 
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
@@ -26,17 +31,25 @@ public class NetworkManagerHaxball : NetworkManager
             // => appending the connectionId is WAY more useful for debugging!
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
+        
+        
         // spawn ball if two players
-        if (numPlayers == 2)
+        if (numPlayers == 1)
         {
-            ball = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "Ball"));
-            NetworkServer.Spawn(ball);
+            GameObject Ball = Instantiate(BallPrefab) as GameObject;
+            NetworkServer.Spawn(Ball);
 
-            GameObject Red = Instantiate(Goal_Red) as GameObject;
-            NetworkServer.Spawn(Red);
+            GameObject Goal_Red = Instantiate(Goal_RedPrefab) as GameObject;
+            NetworkServer.Spawn(Goal_Red);
 
-            GameObject Blue = Instantiate(Goal_Blue) as GameObject;
-            NetworkServer.Spawn(Blue);
+            GameObject Goal_Blue = Instantiate(Goal_BluePrefab) as GameObject;
+            NetworkServer.Spawn(Goal_Blue);
+
+            GameObject GameManager = Instantiate(GameManagerPrefab) as GameObject;
+            NetworkServer.Spawn(GameManager);
+
+            GameObject GC = Instantiate(GameCanvasPrefab) as GameObject;
+            NetworkServer.Spawn(GC);
         }
     }
 

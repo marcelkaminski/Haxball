@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class TimerController : MonoBehaviour
+public class TimerController : NetworkBehaviour
 {
+    [SyncVar]
     public float timeRemaining;
+    [SyncVar]
     public bool timerIsRunning = false;
     public Text TimerText;
+    public GameManager GameManager;
+    public GameObject GameCanvas;
 
     int minutes;
     int seconds;
@@ -15,6 +20,9 @@ public class TimerController : MonoBehaviour
     private void Start()
     {
         timerIsRunning = true;
+        GameManager = GameObject.Find("GameManager(Clone)").GetComponent<GameManager>();
+        GameCanvas = GameObject.Find("GameCanvas(Clone)");
+        TimerText = GameCanvas.transform.GetChild(2).GetComponent<Text>();
     }
 
     void Update()
@@ -31,9 +39,10 @@ public class TimerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
                 timeRemaining = 0;
+                TimerText.text = "TIME: 0:00";
                 timerIsRunning = false;
+                GameManager.CheckTimeWin();
             }
         }
     }

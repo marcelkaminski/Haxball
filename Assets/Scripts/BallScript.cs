@@ -7,26 +7,26 @@ public class BallScript : NetworkBehaviour
 {
     private Rigidbody2D rb;
     //public float kickForce = 1000;
-    //public GameManager gm;
+    public GameManager GameManager;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        GameManager = GameObject.Find("GameManager(Clone)").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter2D (Collider2D collider) 
     {
         if(collider.tag == "Goal_Blue") 
         {
-            Debug.Log("blue");
-            //this.TakeDamage(1);
-            //Destroy(collider.gameObject);
+            GameManager.UpdateScore("red");
         }
         else if(collider.tag == "Goal_Red")
         {
-            Debug.Log("red");
+            GameManager.UpdateScore("blue");
         }
     }
+
     /*
     void TakeDamage (int amount)
     {
