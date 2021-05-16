@@ -28,8 +28,8 @@ public class GameManager : NetworkBehaviour
     {
         GameCanvas = GameObject.Find("GameCanvas(Clone)");
         ScoreText = GameCanvas.transform.GetChild(0).GetComponent<Text>();
-        //GoalTextPanel = GameCanvas.transform.GetChild(1).GetComponent<GameObject>();
-        //GoalText = GoalTextPanel.transform.GetChild(0).GetComponent<Text>();
+        GoalTextPanel = GameCanvas.transform.GetChild(1).gameObject;
+        GoalText = GoalTextPanel.transform.GetChild(0).GetComponent<Text>();
     }
 
     [ClientRpc]
@@ -40,17 +40,17 @@ public class GameManager : NetworkBehaviour
         {
             score_Blue++;
             Debug.Log("SCORE: " + score_Blue + " : " + score_Red);
-            //GoalText.color = Color.blue;
+            GoalText.color = Color.blue;
         }
         else if (team == "red")
         {
             score_Red++;
             Debug.Log("SCORE: " + score_Blue + " : " + score_Red);
-            //GoalText.color = Color.red;
+            GoalText.color = Color.red;
         }
         ScoreText.text = "SCORE: " + score_Blue + " : " + score_Red;
-        //ShowGoalMessage(team);
-        //CheckScoreWin(score_Blue, score_Red);
+        ShowGoalMessage(team);
+        CheckScoreWin(score_Blue, score_Red);
 
     }
 
