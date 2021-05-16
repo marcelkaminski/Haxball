@@ -27,7 +27,7 @@ public class NetworkManagerHaxball : NetworkManager
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
         // spawn ball if two players
-        if (numPlayers == 1)
+        if (numPlayers == 2)
         {
             ball = Instantiate(spawnPrefabs.Find(prefab => prefab.name == "Ball"));
             NetworkServer.Spawn(ball);
