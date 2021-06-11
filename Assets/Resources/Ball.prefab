@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310776512941231341}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,10 +100,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
-  m_AngularDrag: 0.05
+  m_LinearDrag: 2
+  m_AngularDrag: 2
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: d3fba430eb5f0ec42934ffdeba7bba06, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  kickForce: 3
   GameManager: {fileID: 0}
 --- !u!58 &310776512941231340
 CircleCollider2D:
@@ -134,7 +135,7 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: d3fba430eb5f0ec42934ffdeba7bba06, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -174,10 +175,10 @@ MonoBehaviour:
   clientAuthority: 0
   syncVelocity: 1
   clearVelocity: 0
-  velocitySensitivity: 0.1
+  velocitySensitivity: 1
   syncAngularVelocity: 1
   clearAngularVelocity: 0
-  angularVelocitySensitivity: 0.1
+  angularVelocitySensitivity: 1
 --- !u!114 &-999131074191327359
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -128,13 +128,13 @@ public class GameManager : NetworkBehaviour
         foreach (GameObject player_Blue in players_Blue)
         {
             player_Blue.transform.position = new Vector2 (-x_position, y_position);
-            y_position -= 1.0f;
+            y_position -= 1.25f;
         }
         y_position = 2.9f;
         foreach (GameObject player_Red in players_Red)
         {
             player_Red.transform.position = new Vector2 (x_position, y_position);
-            y_position -= 1.0f;
+            y_position -= 1.25f;
         }
     }
 

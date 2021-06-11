@@ -22,12 +22,12 @@ public class NetworkManagerHaxball : NetworkManager
 
         if (numPlayers%2 == 0)
         {
-            GameObject player = Instantiate(playerPrefab, new Vector2(-3f, (2.9f - (numPlayers/2)*1.0f)), Quaternion.identity);
+            GameObject player = Instantiate(playerPrefab, new Vector2(-3f, (2.9f - (numPlayers/2)*1.25f)), Quaternion.identity);
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
         } else 
         {
-            GameObject player = Instantiate(playerPrefab2, new Vector2(3f, (2.9f - (numPlayers/2)*1.0f)), Quaternion.identity);
+            GameObject player = Instantiate(playerPrefab2, new Vector2(3f, (2.9f - (numPlayers/2)*1.25f)), Quaternion.identity);
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
         }

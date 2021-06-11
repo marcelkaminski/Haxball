@@ -6,7 +6,7 @@ using Mirror;
 public class BallScript : NetworkBehaviour
 {
     private Rigidbody2D rb;
-    //public float kickForce = 1000;
+    public float kickForce = 2;
     public GameManager GameManager;
     
     void Start()
@@ -33,43 +33,15 @@ public class BallScript : NetworkBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    /*
-    void TakeDamage (int amount)
-    {
-        if(this.isServer)
-        {
-            RpcRespawn();
-        }
-    }
-
-
-    [ClientRpc]
-    void RpcRespawn()
-    {
-        return 0;
-    }
-
-    //void OnCollisionStay2D(Collision2D other)
-    //{
-    //    if((other.transform.CompareTag("Player_Red") || other.transform.CompareTag("Player_Blue")) && other.transform.GetComponent<PlayerScript>().kicking)
-    //    {
-    //        Vector2 direction = (other.transform.position - transform.position).normalized;
-    //        rb.AddForce(-direction * kickForce);
-    //    }
-    //}
     
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
-        if(other.transform.CompareTag("Goal_Red"))
+       if((other.transform.CompareTag("Player_Red") || other.transform.CompareTag("Player_Blue")) && other.transform.GetComponent<PlayerScript>().kicking)
         {
-            gm.UpdateScore("blue");
-        }
-        else if (other.transform.CompareTag("Goal_Blue"))
-        {
-            gm.UpdateScore("red");
+            Vector2 direction = (other.transform.position - transform.position).normalized;
+            rb.AddForce(-direction * kickForce, ForceMode2D.Impulse);
         }
     }
-
-*/
+    
 }
 

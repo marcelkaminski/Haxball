@@ -8,24 +8,28 @@ public class PlayerScript : NetworkBehaviour
     private float moveHorizontal;
     private float moveVertical;
     public float playerSpeed;
-    //public bool kicking = false;
-    //public Sprite normalSprite;
-    //public Sprite kickSprite;
+    public bool kicking = false;
+    public Sprite normalSprite;
+    public Sprite kickSprite;
+    public SpriteRenderer sr;
 
-    //public SpriteRenderer sr;
 
+    void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
 
-    //void Start()
-    //{
-    //    sr = GetComponent<SpriteRenderer>();
-    //}
-
-    //[Command]
-    //void Update()
-    //{
-    //    if (!hasAuthority) {return;}
-    //   PlayerKick();
-    //}
+    void Update()
+    {
+        if (!hasAuthority) {return;}
+        if (Input.GetKeyDown("space"))
+        {
+            StartKick();
+            StartKickSprite();
+            Invoke("StopKick", 0.05f);
+            Invoke("StopKickSprite", 0.05f);
+        }
+    }
     
     [Client]
     void FixedUpdate()
@@ -44,19 +48,25 @@ public class PlayerScript : NetworkBehaviour
         transform.Translate(movement);
     }
 
-    //void PlayerKick()
-    //{
-    //    if (Input.GetKeyDown("space"))
-    //    {
-    //        kicking = true;
-    //        sr.sprite = kickSprite; 
-    //        Invoke("StopKicking", 0.05f);
-    //    }
-    //}
+    [Command]
+    void StartKick()
+    {
+        kicking = true;
+    }
 
-    //void StopKicking()
-    //{
-    //   kicking = false;
-    //    sr.sprite = normalSprite; 
-    //}
+    [Command]
+    void StopKick()
+    {
+        kicking = false;
+    }
+
+    void StartKickSprite()
+    {
+        sr.sprite = kickSprite; 
+    }
+
+    void StopKickSprite()
+    {
+        sr.sprite = normalSprite; 
+    }
 }
