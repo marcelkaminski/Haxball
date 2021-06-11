@@ -27,6 +27,12 @@ public class BallScript : NetworkBehaviour
         }
     }
 
+    public void ResetPosition()
+    {
+        transform.position = Vector2.zero;
+        rb.velocity = Vector2.zero;
+    }
+
     /*
     void TakeDamage (int amount)
     {
@@ -64,10 +70,6 @@ public class BallScript : NetworkBehaviour
         }
     }
 
-    public void ResetBallPosition()
-    {
-        transform.position = Vector2.zero;
-        rb.velocity = Vector2.zero;
-    }*/
+*/
 }
 

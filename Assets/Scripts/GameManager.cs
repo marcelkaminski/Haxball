@@ -39,13 +39,11 @@ public class GameManager : NetworkBehaviour
         if (team == "blue")
         {
             score_Blue++;
-            Debug.Log("SCORE: " + score_Blue + " : " + score_Red);
             GoalText.color = Color.blue;
         }
         else if (team == "red")
         {
             score_Red++;
-            Debug.Log("SCORE: " + score_Blue + " : " + score_Red);
             GoalText.color = Color.red;
         }
         ScoreText.text = "SCORE: " + score_Blue + " : " + score_Red;
@@ -108,20 +106,19 @@ public class GameManager : NetworkBehaviour
         }
 
         GoalTextPanel.SetActive(true);
-        //Invoke("RestartMatch", 3.0f);
+        Invoke("RestartMatch", 3.0f);
         Invoke("HideGoalMessage", 3.0f);
-    }
-    /*
-    private void RestartMatch()
-    {
-        SceneManager.LoadScene("StartScene");
     }
 
     private void ResetBall()
     {
-        //bs.ResetBallPosition();
+        GameObject ball = GameObject.Find("Ball(Clone)");
+        BallScript ballScript = (BallScript) ball.GetComponent(typeof(BallScript));
+        ballScript.ResetPosition();
     }
     
+
+
     private void ResetPlayers()
     {
         GameObject[] players_Blue = GameObject.FindGameObjectsWithTag("Player_Blue");
@@ -131,13 +128,20 @@ public class GameManager : NetworkBehaviour
         foreach (GameObject player_Blue in players_Blue)
         {
             player_Blue.transform.position = new Vector2 (-x_position, y_position);
-            y_position -= 0.8f;
+            y_position -= 1.0f;
         }
         y_position = 2.9f;
         foreach (GameObject player_Red in players_Red)
         {
             player_Red.transform.position = new Vector2 (x_position, y_position);
-            y_position -= 0.8f;
+            y_position -= 1.0f;
         }
-    }*/
+    }
+
+        
+    private void RestartMatch()
+    {
+        NetworkServer.Shutdown();
+    }
+    
 }

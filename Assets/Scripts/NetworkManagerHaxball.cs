@@ -3,8 +3,7 @@ using Mirror;
 
 public class NetworkManagerHaxball : NetworkManager
 {
-    // public Transform leftRacketSpawn;
-    //public Transform rightRacketSpawn;
+
     [SerializeField]
     private GameObject BallPrefab;
     [SerializeField]
@@ -16,23 +15,23 @@ public class NetworkManagerHaxball : NetworkManager
     [SerializeField]
     private GameObject GameCanvasPrefab;
 
+    public GameObject playerPrefab2;
+    
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
-        // add player at correct spawn position
-        //Transform start = numPlayers == 0 ? leftRacketSpawn : rightRacketSpawn;
-        //GameObject player = Instantiate(playerPrefab, start.position, start.rotation);
-        //NetworkServer.AddPlayerForConnection(conn, player);
-            Transform startPos = GetStartPosition();
-            GameObject player = startPos != null
-                ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
-                : Instantiate(playerPrefab);
 
-            // instantiating a "Player" prefab gives it the name "Player(clone)"
-            // => appending the connectionId is WAY more useful for debugging!
+        if (numPlayers%2 == 0)
+        {
+            GameObject player = Instantiate(playerPrefab, new Vector2(-3f, (2.9f - (numPlayers/2)*1.0f)), Quaternion.identity);
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
-        
-        
+        } else 
+        {
+            GameObject player = Instantiate(playerPrefab2, new Vector2(3f, (2.9f - (numPlayers/2)*1.0f)), Quaternion.identity);
+            player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
+            NetworkServer.AddPlayerForConnection(conn, player);
+        }
+
         // spawn ball if two players
         if (numPlayers == 1)
         {
